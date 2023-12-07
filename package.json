@@ -1,13 +1,13 @@
 {
-  "name": "Figma-Variables-to-CSS-Variables",
+  "name": "figma-variables-to-css-variables",
   "version": "1.0.0",
-  "description": "Your Figma Plugin",
-  "main": "code.js",
+  "description": "Figma Variables to CSS Variables",
+  "main": "dist/code.js",
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "watch": "npm run build -- --watch"
   },
-  "author": "",
+  "author": "Hart Liddell",
   "license": "",
   "devDependencies": {
     "@figma/plugin-typings": "*",

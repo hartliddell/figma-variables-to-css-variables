@@ -2,7 +2,7 @@
   "name": "Figma Variables to CSS Variables",
   "id": "1314618531842539516",
   "api": "1.0.0",
-  "main": "code.js",
+  "main": "dist/code.js",
   "capabilities": [
     "codegen"
   ],

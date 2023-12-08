@@ -1,3 +1,4 @@
+// INSPO - https://github.com/jake-figma/variables-import-export/blob/main/code.js
 // This plugin will generate a sample codegen plugin
 // that appears in the Element tab of the Inspect panel.
 
@@ -96,4 +97,15 @@ tokenModes.forEach((mode) => {
   });
 });
 
-figma.closePlugin();
+const exportToCSSVariables = () => {
+  figma.ui.postMessage({ type: "EXPORT_RESULT", data: 'hello world' });
+};
+
+figma.ui.onmessage = (e) => {
+  console.log("code received message", e);
+  if (e.type === "EXPORT") {
+    exportToCSSVariables();
+  }
+};
+
+figma.showUI(__html__, { themeColors: true });

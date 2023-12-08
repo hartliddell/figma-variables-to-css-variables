@@ -3,24 +3,8 @@
   "id": "1314618531842539516",
   "api": "1.0.0",
   "main": "dist/code.js",
-  "capabilities": [
-    "codegen"
-  ],
-  "enableProposedApi": false,
   "editorType": [
-    "dev",
     "figma"
   ],
-  "ui": "ui.html",
-  "codegenLanguages": [
-    {
-      "label": "Language Label",
-      "value": "language-value"
-    }
-  ],
-  "networkAccess": {
-    "allowedDomains": [
-      "none"
-    ]
-  }
+  "ui": "ui.html"
 }

@@ -44,7 +44,7 @@ const rgbToHex = ({ r, g, b, a }: RGBAType) => {
   return `#${hex}`;
 }
 
-const gevariableariablePrimitiveValue = (value: VariableValue) => {
+const getVariableariablePrimitiveValue = (value: VariableValue) => {
   if (typeof value === 'string' || typeof value === 'number' || typeof value === 'boolean') {
     return value;
   }
@@ -52,6 +52,10 @@ const gevariableariablePrimitiveValue = (value: VariableValue) => {
     return rgbToHex(value as RGBAType);
   }
   // ELSE fetch and return alias
+};
+
+const castTokenNameToCssVar = (name: string): string => {
+  return `--${name.replace(/\//g, '-').replace(/ /g, '-')}`;
 };
 
 console.clear();
@@ -84,8 +88,9 @@ tokenModes.forEach((mode) => {
     if (variable) {
       const tokenValue: VariableValue = variable.valuesByMode[mode.modeId];
       if (tokenValue) {
-        const cssVar = `--${variable.name.replace(/\//g, '-').replace(/ /g, '-')}`;
-        console.log(cssVar, rgbToHex(tokenValue as RGBAType).toUpperCase());
+        const cssVar = castTokenNameToCssVar(variable.name);
+        const value = getVariableariablePrimitiveValue(tokenValue);
+        console.log(cssVar, value);
       }
     }
   });

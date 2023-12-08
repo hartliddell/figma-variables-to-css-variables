@@ -8,7 +8,8 @@
   ],
   "enableProposedApi": false,
   "editorType": [
-    "dev"
+    "dev",
+    "figma"
   ],
   "ui": "ui.html",
   "codegenLanguages": [

@@ -1,7 +1,3 @@
-/*
- * INSPO - https://github.com/jake-figma/variables-import-export/blob/main/code.js
- */
-
 const rgbToHex = (color: RGBA | RGB) => {
   const toHex = (value: number) => {
     const hex = Math.round(value * 255).toString(16);

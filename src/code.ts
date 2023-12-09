@@ -26,7 +26,7 @@ const getVariablePrimitiveValue = (value: VariableValue) => {
   if (typeof value === 'object' && 'r' in value && 'g' in value && 'b' in value) {
     return rgbToHex(value);
   }
-  // ELSE fetch and return alias
+  // TODO: update to handle variable aliases
 };
 
 const castTokenNameToCssVarName = (name: string): string => {
@@ -42,6 +42,7 @@ const getCSSVarsFromVariableCollections = () => {
   let tokenVariablesIds: string[] = [];
 
   localCollections.some((c) => {
+    // TODO: update to handle multiple collections
     if (c.name === 'tokens') {
       tokenModes = c.modes;
       tokenVariablesIds = c.variableIds;

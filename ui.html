@@ -76,13 +76,25 @@
   ></textarea>
 </main>
 <script>
+  const convertToCssString = (data) => {
+    let cssString = '';
+    for (const theme in data) {
+      cssString += `.${theme} {\n`;
+      data[theme].forEach(property => {
+        cssString += `  ${property}\n`;
+      });
+      cssString += '}\n\n';
+    }
+    return cssString;
+  }
+
   window.onmessage = ({ data: { pluginMessage } }) => {
     if (pluginMessage.type === "EXPORT_RESULT") {
-      document.querySelector("textarea").innerHTML = pluginMessage.data;
+      const { data } = pluginMessage;
+      document.querySelector("textarea").innerHTML = convertToCssString(data);
     }
   };
   document.getElementById("export").addEventListener("click", () => {
-    console.log('export css vars');
-    // parent.postMessage({ pluginMessage: { type: "EXPORT" } }, "*");
+    parent.postMessage({ pluginMessage: { type: "EXPORT" } }, "*");
   });
 </script>
